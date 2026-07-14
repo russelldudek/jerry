@@ -1,0 +1,159 @@
+.site-footer strong { font-size:clamp(32px,5vw,66px); letter-spacing:-.055em; line-height:1; }
+
+.site-footer p { margin:16px 0 0; color:#aaa8b0; max-width:650px; }
+
+.site-footer .contact { text-align:right; font-size:14px; }
+
+.site-footer .contact a { display:block; margin-top:7px; }
+
+.source-note { font-size:12px; color:var(--jerry-muted); margin-top:24px; }
+
+.section.dark .source-note { color:#918f98; }
+
+/* document surfaces */
+.doc-body { background:#eee; color:#18181d; font-family: Arial, Helvetica, sans-serif; }
+
+.doc-toolbar { position:sticky; top:0; z-index:30; display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:12px; background:#15151a; color:white; }
+
+.doc-toolbar a, .doc-toolbar button { border:1px solid #55515a; background:#222229; color:white; border-radius:999px; padding:9px 14px; text-decoration:none; cursor:pointer; font-weight:700; }
+
+.doc-toolbar .primary { background:var(--jerry-pink); border-color:var(--jerry-pink); color:white; }
+
+.document-stack { padding:30px 12px 80px; }
+
+.paper {
+  width:8.5in; min-height:11in; margin:0 auto 24px; padding:.47in .54in .45in;
+  background:white; box-shadow:0 8px 30px rgba(0,0,0,.12); position:relative; overflow:visible;
+}
+
+.paper + .paper { page-break-before:always; }
+
+.doc-head { display:grid; grid-template-columns:1fr auto; gap:22px; align-items:start; padding-bottom:15px; border-bottom:3px solid var(--jerry-pink); }
+
+.doc-name { font-size:27px; line-height:1; font-weight:800; letter-spacing:-.035em; }
+
+.doc-title { margin-top:6px; font-size:13px; font-weight:700; color:var(--jerry-pink-deep); }
+
+.doc-contact { text-align:right; font-size:9px; line-height:1.5; }
+
+.doc-contact a { text-decoration:none; }
+
+.doc-brand { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+
+.doc-brand img { width:72px; }
+
+.doc-brand span { font-size:8px; color:#69636b; }
+
+.doc-section { margin-top:16px; }
+
+.doc-section h2 { margin:0 0 7px; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--jerry-pink-deep); }
+
+.doc-section h3 { margin:0 0 3px; font-size:11.5px; line-height:1.2; }
+
+.doc-section p, .doc-section li { font-size:9.2px; line-height:1.36; }
+
+.doc-section p { margin-bottom:6px; }
+
+.doc-section ul { margin:4px 0 0; padding-left:14px; }
+
+.doc-section li { margin-bottom:3px; }
+
+.doc-summary { font-size:10.3px; line-height:1.4; margin:13px 0 0; }
+
+.doc-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+.doc-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+
+.doc-callout { border-left:3px solid var(--jerry-pink); background:#fff4f8; padding:9px 11px; margin-top:12px; }
+
+.doc-callout strong { display:block; font-size:9.5px; }
+
+.doc-callout p { margin:3px 0 0; font-size:8.8px; }
+
+.job { margin-top:11px; break-inside:avoid; }
+
+.job-head { display:grid; grid-template-columns:1fr auto; gap:12px; align-items:baseline; }
+
+.job-head strong { font-size:11px; }
+
+.job-head span { font-size:8.6px; color:#676169; white-space:nowrap; }
+
+.job em { display:block; font-style:normal; font-size:9px; font-weight:700; color:#3c3940; margin:2px 0 4px; }
+
+.job ul { margin:0; }
+
+.skill-strip { display:flex; flex-wrap:wrap; gap:5px 8px; font-size:8.7px; }
+
+.skill-strip span { border-bottom:1px solid #d8d1d4; padding-bottom:2px; }
+
+.doc-footer { position:absolute; left:.54in; right:.54in; bottom:.24in; display:flex; justify-content:space-between; border-top:1px solid #ddd6d9; padding-top:6px; font-size:8px; color:#777078; }
+
+.resume-doc .doc-section { margin-top:18px; }
+
+.resume-doc .doc-section p, .resume-doc .doc-section li { font-size:9.8px; line-height:1.43; }
+
+.resume-doc .doc-section p { margin-bottom:7px; }
+
+.resume-doc .doc-section li { margin-bottom:4px; }
+
+.resume-doc .doc-summary { font-size:10.6px; line-height:1.43; }
+
+.resume-doc .job { margin-top:13px; }
+
+.resume-doc .job-head strong { font-size:11.4px; }
+
+.resume-doc .job em { font-size:9.2px; margin:3px 0 5px; }
+
+.resume-doc .doc-callout { padding:10px 12px; margin-top:14px; }
+
+.resume-doc .doc-callout p { font-size:9px; }
+
+.letter-body { margin-top:20px; }
+
+.letter-body p { font-size:10.8px; line-height:1.55; margin:0 0 11px; }
+
+.letter-body .salutation { margin-bottom:13px; }
+
+.letter-signature { margin-top:17px; }
+
+.letter-signature strong { font-size:12px; }
+
+.report-title { font-size:30px; line-height:1; letter-spacing:-.045em; margin:18px 0 10px; }
+
+.report-deck { font-size:12px; line-height:1.38; color:#514c53; max-width:90%; }
+
+.report-section { margin-top:20px; }
+
+.report-section h2 { font-size:16px; line-height:1.1; letter-spacing:-.025em; margin:0 0 9px; }
+
+.report-section h3 { font-size:11px; margin:10px 0 5px; }
+
+.report-section p, .report-section li { font-size:9.6px; line-height:1.4; }
+
+.report-section ul { margin:6px 0 0; padding-left:17px; }
+
+.report-table { width:100%; border-collapse:collapse; margin-top:10px; }
+
+.report-table th, .report-table td { border:1px solid #ddd6d9; padding:7px; text-align:left; vertical-align:top; font-size:8.7px; line-height:1.35; }
+
+.report-table th { background:#fff3f7; color:#8f1948; font-size:8px; text-transform:uppercase; letter-spacing:.05em; }
+
+.report-band { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #ddd6d9; margin-top:12px; }
+
+.report-band > div { padding:10px; min-height:80px; }
+
+.report-band > div + div { border-left:1px solid #ddd6d9; }
+
+.report-band strong { display:block; font-size:9.5px; margin-bottom:4px; }
+
+.report-band p { margin:0; font-size:8.6px; }
+
+.manifest-sheet { display:grid; grid-template-columns:36% 64%; gap:0; border:1px solid #d9d1d5; margin-top:12px; }
+
+.manifest-sheet > div { padding:9px; border-bottom:1px solid #e4dde0; font-size:9px; }
+
+.manifest-sheet > div:nth-child(odd) { background:#fff3f7; font-weight:700; }
+
+@keyframes fragment-breathe { 0%,100% { transform:translateY(0); border-color:#383842; } 50% { transform:translateY(-4px); border-color:#6a3d51; } }
+
+@keyframes compile { 0% { transform:translateY(0); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform:translateY(48px); opacity:0; } }
