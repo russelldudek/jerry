@@ -1,0 +1,20 @@
+:root {
+  /* source-sampled from Jerry wordmark in official-partner customer-story asset */
+  --jerry-pink: #FA3F7C;
+  --jerry-pink-deep: #D91F61;
+  --jerry-black: #101014;
+  --jerry-ink: #17171C;
+  --jerry-paper: #FFFDFB;
+  --jerry-blush: #FFF2F7;
+  --jerry-line: #E8E2E5;
+  --jerry-muted: #68636A;
+  /* candidate-original semantic accents for agent behavior states */
+  --state-ready: #167A55;
+  --state-canary: #A15C00;
+  --state-hold: #B42318;
+  --state-human: #4C45A8;
+  --code-bg: #15151A;
+  --code-panel: #202027;
+  --code-line: #383842;
+  --shadow-soft: 0 24px 60px rgba(16,16,20,.10);
+}
