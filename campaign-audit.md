@@ -62,6 +62,7 @@ Observed: 2026-07-14
 - Public artifacts use neutral candidate-campaign language only.
 - No private system names, internal memory paths, campaign-source invitations, or confidential client details are exposed.
 - Source, filenames, visible PDF text, and PDF metadata returned zero restricted internal-name and source-invitation matches.
+- A final package-wide grep found the retired source URL only inside dead migration strings in the artifact normalizer; those strings were removed, the artifacts were rebuilt, and the source scan returned zero matches.
 - Candidate-facing confidentiality: passed.
 - Public campaign surface scan: passed.
 - PDF text and metadata scan: passed.
