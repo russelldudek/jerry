@@ -1,0 +1,90 @@
+@media (max-width: 1050px) {
+  .hero { grid-template-columns:1fr; }
+  .compiler { min-height:auto; }
+  .tension-band { grid-template-columns:repeat(2,1fr); }
+  .tension:nth-child(n) { padding-left:0; border-left:0; padding-right:24px; }
+  .tension:nth-child(even) { padding-left:24px; border-left:1px solid var(--jerry-line); }
+  .scorecard { grid-template-columns:repeat(2,1fr); }
+  .evidence-row { grid-template-columns:170px 1fr; }
+  .evidence-row .transfer { grid-column:2; }
+  .doc-rail { grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width: 840px) {
+  .doc-body .document-stack { padding:0; }
+  .doc-body .paper { width:100%; min-height:auto; margin:0; box-shadow:none; padding:24px 20px 60px; }
+  .doc-body .doc-head { grid-template-columns:1fr; }
+  .doc-body .doc-contact { text-align:left; }
+  .doc-body .doc-grid-2, .doc-body .doc-grid-3 { grid-template-columns:1fr; }
+  .doc-body .doc-footer { position:static; margin-top:24px; }
+  .doc-body .report-table { table-layout:fixed; }
+  .doc-body .report-table th, .doc-body .report-table td { overflow-wrap:anywhere; word-break:break-word; }
+  .doc-body .manifest-sheet > div { min-width:0; overflow-wrap:anywhere; word-break:break-word; }
+}
+
+@media (max-width: 760px) {
+  .site-nav { position:relative; min-height:66px; }
+  .brand-lockup img { width:110px; }
+  .brand-lockup small { display:none; }
+  .nav-links a:not(.nav-cta) { display:none; }
+  .hero { min-height:auto; padding-top:58px; }
+  h1 { font-size:clamp(50px,15vw,76px); }
+  .compiler { margin-inline:-6px; padding:18px; border-radius:24px; }
+  .compiler-caption { display:none; }
+  .fragment-grid { grid-template-columns:1fr; }
+  .fragment:nth-child(n+5) { display:none; }
+  .manifest-fields { grid-template-columns:1fr; }
+  .tension-band, .scorecard, .plan, .questions, .doc-rail { grid-template-columns:1fr; }
+  .tension:nth-child(n) { padding:22px 0; border-left:0; }
+  .lab { grid-template-columns:1fr; }
+  .scenario-list { flex-direction:row; overflow-x:auto; padding-bottom:6px; }
+  .scenario-button { min-width:190px; }
+  .lab-top { flex-direction:column; }
+  .diff-table { grid-template-columns:1fr; }
+  .diff-table .head:nth-of-type(n+2) { display:none; }
+  .diff-table > div { padding:8px 4px; }
+  .output-summary { grid-template-columns:1fr; }
+  .manifest-layout { grid-template-columns:1fr; }
+  .manifest-spine { position:relative; top:auto; }
+  .evidence-row { grid-template-columns:1fr; gap:8px; }
+  .evidence-row .transfer { grid-column:1; }
+  .objection { grid-template-columns:1fr; }
+  .site-footer { grid-template-columns:1fr; }
+  .site-footer .contact { text-align:left; }
+  .doc-body .report-band { grid-template-columns:1fr; }
+  .doc-body .report-band > div + div { border-left:0; border-top:1px solid #ddd6d9; }
+  .doc-body .manifest-sheet { grid-template-columns:42% 58%; }
+  .document-stack { padding:0; }
+  .paper { width:100%; min-height:auto; margin:0; box-shadow:none; padding:24px 20px 60px; }
+  .doc-head { grid-template-columns:1fr; }
+  .doc-contact { text-align:left; }
+  .doc-grid-2, .doc-grid-3 { grid-template-columns:1fr; }
+  .doc-footer { position:static; margin-top:24px; }
+}
+
+@media print {
+  .dense-manifest .report-section { margin-top:12px; }
+  .dense-manifest .report-section h2 { margin-bottom:5px; }
+  .dense-manifest .report-table { margin-top:6px; }
+  .dense-manifest .report-table th, .dense-manifest .report-table td { padding:4px 5px; font-size:8.1px; line-height:1.23; }
+  .dense-manifest .report-table th { font-size:7.4px; }
+  .dense-manifest .manifest-sheet { margin-top:6px; }
+  .dense-manifest .manifest-sheet > div { padding:5px 6px; font-size:8.2px; line-height:1.24; }
+  .dense-manifest .report-band { margin-top:6px; }
+  .dense-manifest .report-band > div { padding:7px; min-height:56px; }
+  .dense-manifest .report-band p { font-size:8px; line-height:1.25; }
+  @page { size: Letter; margin:0; }
+  html, body { margin:0 !important; padding:0 !important; background:white !important; }
+  .doc-toolbar { display:none !important; }
+  .document-stack { padding:0 !important; }
+  .paper { width:8.5in !important; height:11in !important; min-height:11in !important; margin:0 !important; padding:.47in .54in .45in !important; box-shadow:none !important; overflow:hidden !important; break-after:page; page-break-after:always; }
+  .paper:last-child { break-after:auto; page-break-after:auto; }
+  .no-print { display:none !important; }
+  a { text-decoration:none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .compile-pulse { display:none; }
+}
