@@ -25,4 +25,4 @@ Russell is currently based in Pittsburgh and is actively relocating to the Tampa
 
 ## Publication
 
-Designed for static hosting at `https://russelldudek.github.io/jerry/` with source at `https://github.com/russelldudek/jerry`.
+Designed for static hosting at `https://russelldudek.github.io/jerry/`.
