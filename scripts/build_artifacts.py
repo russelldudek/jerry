@@ -20,16 +20,67 @@ DOCUMENTS = {
 }
 
 
+def replace_once(path: Path, old: str, new: str) -> None:
+    text = path.read_text()
+    if old in text:
+        path.write_text(text.replace(old, new, 1))
+
+
+def normalize_public_files() -> None:
+    resume = BASE / "resume.html"
+    cover = BASE / "cover-letter.html"
+    readme = BASE / "README.md"
+    index = BASE / "index.html"
+    brief = BASE / "interview-brief.html"
+
+    replace_once(resume, "View cover letter", "View Cover Letter")
+    replace_once(
+        resume,
+        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a> | Source: <a href="https://github.com/russelldudek/jerry">github.com/russelldudek/jerry</a>',
+        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a>',
+    )
+    replace_once(cover, "View resume", "View Resume")
+    replace_once(
+        cover,
+        "I would prefer that concern be tested through this work sample and a concrete thin-slice plan rather than answered with title equivalence.",
+        "I would prefer that concern be tested through the linked candidate vision, where the Agent Behavior Manifest and Behavior Diff Lab demonstrate the product reasoning, and through a concrete thin-slice plan rather than answered with title equivalence.",
+    )
+    replace_once(
+        cover,
+        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a> | Source: <a href="https://github.com/russelldudek/jerry">github.com/russelldudek/jerry</a>',
+        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a>',
+    )
+    replace_once(
+        readme,
+        "Designed for static hosting at `https://russelldudek.github.io/jerry/` with source at `https://github.com/russelldudek/jerry`.",
+        "Designed for static hosting at `https://russelldudek.github.io/jerry/`.",
+    )
+    replace_once(
+        index,
+        '<div><strong>Russell Dudek</strong><p>Operator-technologist and AI product systems builder. Currently in Pittsburgh and actively relocating to the Tampa Bay area, Florida.</p></div>',
+        '<div><strong>Russell Dudek</strong><p>Operator-technologist and AI product systems builder. Currently in Pittsburgh and actively relocating to the Tampa Bay area, Florida.</p><p class="source-note">Independent candidate work; not affiliated with or endorsed by Jerry.</p></div>',
+    )
+    location = '<section class="report-section"><h2>Location</h2><p>Currently in Pittsburgh and actively relocating to Tampa Bay. Prepared to establish Florida residency and confirm timing directly; no claim of current Florida residency is made.</p></section>'
+    replace_once(
+        brief,
+        location,
+        location + '\n<section class="report-section"><h2>Public sources</h2><p>Jerry role description supplied with this campaign; Jerry home, about, careers, and newsroom pages; Plaid official Jerry customer story. Full URLs and observation date are recorded in the campaign research file.</p></section>',
+    )
+
+
 def build_brand_assets() -> None:
-    request = Request(SOURCE_URL, headers={"User-Agent": "Mozilla/5.0"})
-    with urlopen(request, timeout=45) as response:
-        payload = response.read()
-    source = Image.open(io.BytesIO(payload)).convert("RGB")
-    if source.size != (1200, 800):
-        raise RuntimeError(f"Unexpected partner asset size: {source.size}; refusing an unsafe crop")
     SOURCE_PATH.parent.mkdir(parents=True, exist_ok=True)
     WORDMARK_PATH.parent.mkdir(parents=True, exist_ok=True)
-    source.save(SOURCE_PATH, "WEBP", quality=80, method=6)
+    if SOURCE_PATH.exists():
+        source = Image.open(SOURCE_PATH).convert("RGB")
+    else:
+        request = Request(SOURCE_URL, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(request, timeout=45) as response:
+            payload = response.read()
+        source = Image.open(io.BytesIO(payload)).convert("RGB")
+        source.save(SOURCE_PATH, "WEBP", quality=80, method=6)
+    if source.size != (1200, 800):
+        raise RuntimeError(f"Unexpected partner asset size: {source.size}; refusing an unsafe crop")
     source.crop((85, 70, 520, 210)).save(WORDMARK_PATH, "PNG", optimize=True)
 
 
@@ -68,6 +119,7 @@ def build_documents() -> None:
 
 
 if __name__ == "__main__":
+    normalize_public_files()
     build_brand_assets()
     build_documents()
-    print("Built brand assets and validated 12 US Letter PDF pages.")
+    print("Normalized public files, built brand assets, and validated 12 US Letter PDF pages.")
