@@ -60,3 +60,14 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Record successful deployment
+        run: |
+          if [ ! -f .deployment-verified ]; then
+            printf 'GitHub Pages deployment completed successfully.\nLive site: https://russelldudek.github.io/jerry/\n' > .deployment-verified
+            git add .deployment-verified
+            git commit -m "Record successful campaign deployment"
+            git push
+          else
+            echo "Deployment proof is already recorded."
+          fi
