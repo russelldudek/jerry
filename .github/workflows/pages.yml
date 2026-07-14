@@ -32,18 +32,18 @@ jobs:
       - name: Install artifact dependencies
         run: pip install --disable-pip-version-check pillow weasyprint pypdf
 
-      - name: Build brand assets and PDFs
+      - name: Normalize and build campaign artifacts
         run: python scripts/build_artifacts.py
 
-      - name: Commit generated artifacts to main
+      - name: Commit generated and normalized artifacts to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets docs
+          git add assets docs resume.html cover-letter.html interview-brief.html index.html README.md
           if git diff --cached --quiet; then
-            echo "Generated artifacts are current."
+            echo "Campaign artifacts are current."
           else
-            git commit -m "Build Jerry campaign artifacts"
+            git commit -m "Refresh Jerry campaign artifacts"
             git push
           fi
 
