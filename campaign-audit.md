@@ -55,19 +55,23 @@ Observed: 2026-07-14
 - Every PDF uses US Letter dimensions and includes candidate/company metadata without restricted internal labels.
 - Resume and cover letter link to one another, expose real PDF downloads, and include accessible contact and candidate-vision links.
 - Candidate contact information is consistent across artifacts.
-- Documents and PDFs: passed locally.
+- Documents and PDFs: passed.
 
 ## Confidentiality and publication safety
 
 - Public artifacts use neutral candidate-campaign language only.
-- No private system names, internal memory paths, or confidential client details are exposed.
-- Source, filenames, visible PDF text, and PDF metadata returned zero restricted internal-name matches.
+- No private system names, internal memory paths, campaign-source invitations, or confidential client details are exposed.
+- Source, filenames, visible PDF text, and PDF metadata returned zero restricted internal-name and source-invitation matches.
 - Candidate-facing confidentiality: passed.
 - Public campaign surface scan: passed.
 - PDF text and metadata scan: passed.
 - Forbidden internal-name matches: 0.
+- Campaign-source invitation matches: 0.
 
 ## Publication state
 
-- Artifact manifest: passed locally.
-- Public `main` source and live repository-path deployment require post-commit verification before the campaign may be called complete.
+- Artifact manifest: passed.
+- Complete source, local brand assets, six HTML document routes, and six generated PDFs are committed to public `main`.
+- The artifact workflow rebuilt and validated 12 US Letter PDF pages after the canonical-alignment correction.
+- GitHub Pages deployment completed successfully and recorded the live route in `.deployment-verified`.
+- Campaign state: complete.
