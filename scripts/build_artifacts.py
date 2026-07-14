@@ -34,26 +34,11 @@ def normalize_public_files() -> None:
     brief = BASE / "interview-brief.html"
 
     replace_once(resume, "View cover letter", "View Cover Letter")
-    replace_once(
-        resume,
-        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a> | Source: <a href="https://github.com/russelldudek/jerry">github.com/russelldudek/jerry</a>',
-        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a>',
-    )
     replace_once(cover, "View resume", "View Resume")
     replace_once(
         cover,
         "I would prefer that concern be tested through this work sample and a concrete thin-slice plan rather than answered with title equivalence.",
         "I would prefer that concern be tested through the linked candidate vision, where the Agent Behavior Manifest and Behavior Diff Lab demonstrate the product reasoning, and through a concrete thin-slice plan rather than answered with title equivalence.",
-    )
-    replace_once(
-        cover,
-        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a> | Source: <a href="https://github.com/russelldudek/jerry">github.com/russelldudek/jerry</a>',
-        'Candidate vision: <a href="https://russelldudek.github.io/jerry/">russelldudek.github.io/jerry/</a>',
-    )
-    replace_once(
-        readme,
-        "Designed for static hosting at `https://russelldudek.github.io/jerry/` with source at `https://github.com/russelldudek/jerry`.",
-        "Designed for static hosting at `https://russelldudek.github.io/jerry/`.",
     )
     replace_once(
         index,
