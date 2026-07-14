@@ -60,12 +60,13 @@ def normalize_public_files() -> None:
         '<div><strong>Russell Dudek</strong><p>Operator-technologist and AI product systems builder. Currently in Pittsburgh and actively relocating to the Tampa Bay area, Florida.</p></div>',
         '<div><strong>Russell Dudek</strong><p>Operator-technologist and AI product systems builder. Currently in Pittsburgh and actively relocating to the Tampa Bay area, Florida.</p><p class="source-note">Independent candidate work; not affiliated with or endorsed by Jerry.</p></div>',
     )
+
     location = '<section class="report-section"><h2>Location</h2><p>Currently in Pittsburgh and actively relocating to Tampa Bay. Prepared to establish Florida residency and confirm timing directly; no claim of current Florida residency is made.</p></section>'
-    replace_once(
-        brief,
-        location,
-        location + '\n<section class="report-section"><h2>Public sources</h2><p>Jerry role description supplied with this campaign; Jerry home, about, careers, and newsroom pages; Plaid official Jerry customer story. Full URLs and observation date are recorded in the campaign research file.</p></section>',
-    )
+    source_section = '<section class="report-section"><h2>Public sources</h2><p>Jerry role description supplied with this campaign; Jerry home, about, careers, and newsroom pages; Plaid official Jerry customer story. Full URLs and observation date are recorded in the campaign research file.</p></section>'
+    brief_text = brief.read_text().replace('\n' + source_section, '').replace(source_section, '')
+    if location not in brief_text:
+        raise RuntimeError("Interview brief location section is missing; refusing an unsafe normalization")
+    brief.write_text(brief_text.replace(location, location + '\n' + source_section, 1))
 
 
 def build_brand_assets() -> None:
