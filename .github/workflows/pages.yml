@@ -63,11 +63,16 @@ jobs:
 
       - name: Record successful deployment
         run: |
-          if [ ! -f .deployment-verified ]; then
-            printf 'GitHub Pages deployment completed successfully.\nLive site: https://russelldudek.github.io/jerry/\n' > .deployment-verified
-            git add .deployment-verified
+          current_message="$(git log -1 --pretty=%s)"
+          if [ "$current_message" = "Record successful campaign deployment" ]; then
+            echo "Deployment proof commit has itself been deployed."
+            exit 0
+          fi
+          printf 'GitHub Pages deployment completed successfully.\nDeployed source commit: %s\nLive site: https://russelldudek.github.io/jerry/\n' "$GITHUB_SHA" > .deployment-verified
+          git add .deployment-verified
+          if git diff --cached --quiet; then
+            echo "Deployment proof is current."
+          else
             git commit -m "Record successful campaign deployment"
             git push
-          else
-            echo "Deployment proof is already recorded."
           fi
